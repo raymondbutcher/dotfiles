@@ -29,8 +29,10 @@
 
 import i3ipc
 import logging
+import os
 import signal
 import sys
+
 import fontawesome as fa
 
 from util import *
@@ -71,7 +73,19 @@ def icon_for_window(window):
                 except ValueError:
                     pass
                 else:
-                    return path
+
+                    # If working in a git repo, use its name.
+                    current_path = os.path.expanduser(path)
+                    while current_path and current_path != '/':
+                        git_path = os.path.join(current_path, '.git')
+                        print('git_path?', git_path)
+                        if os.path.exists(git_path):
+                            return os.path.basename(current_path)
+                        current_path = os.path.dirname(current_path)
+                        print('use', current_path)
+
+                    # Not a git repo, return the current directory.
+                    return os.path.basename(path)
 
             return '~'
 
