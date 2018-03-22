@@ -48,7 +48,7 @@ from util import *
 # xprop (https://linux.die.net/man/1/xprop). Run `xprop | grep WM_CLASS`
 # then click on the application you want to inspect.
 WINDOW_ICONS = {
-    'code': fa.icons['pencil'],
+    'code': fa.icons['file-text'],
 }
 
 # This icon is used for any application not in the list above
@@ -85,7 +85,7 @@ def icon_for_window(window):
                         print('use', current_path)
 
                     # Not a git repo, return the current directory.
-                    return os.path.basename(path)
+                    return os.path.basename(path) or '/'
 
             return '~'
 
