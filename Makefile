@@ -31,7 +31,7 @@ vagrant-i3: i3
 .PHONY: i3
 i3:
 	${MAKE} mount src=config/i3 dest=~/.config/i3
-	@find /run/user/$(id -u) -wholename '*/i3/ipc-socket.*' -exec i3-msg -s {} reload \; > /dev/null
+	@find /run/user/$$(id -u) -wholename '*/i3/ipc-socket.*' -exec i3-msg -s {} reload \; > /dev/null
 
 ####################
 # Makefile helpers #
