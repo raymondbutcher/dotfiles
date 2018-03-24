@@ -65,7 +65,7 @@ def icon_for_window(window):
 
     for name in classes:
 
-        if name == 'gnome-terminal-server':
+        if name in ('gnome-terminal-server', 'x-terminal-emulator'):
 
             for name in titles:
                 try:
