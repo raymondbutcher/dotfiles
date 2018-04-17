@@ -161,10 +161,13 @@ bar {
 
 # Additional settings
 
-focus_follows_mouse no
-
 for_window [class=".*"] title_format <span size="smaller"> %title</span>
 
+focus_follows_mouse no
+
+bindsym --release button2 kill
 bindsym --release button3 kill
 
 exec_always ~/.config/i3/scripts/autoname_workspaces.py
+
+exec_always --no-startup-id setxkbmap gb
